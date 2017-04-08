@@ -17,23 +17,22 @@
   <title>Buzzer</title>
 </head>
 
-<body ng-app="buzzer">
-
-  <main class="content" ng-controller="ShellController">
-    <nav class="navbar navbar-buzzer">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand">
-            <span class="brand">Buzzer</span>
-            <span class="tagline">Investments simplified.</span>
-          </a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><button type="button" class="btn btn-link" ng-click="navigate('home')" ng-class="{ 'active': location('home') }">Feed</button></li>
-        </ul>
+<body ng-app="buzzer" ng-controller="ShellController">
+  <nav class="navbar navbar-buzzer">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">
+          <span class="brand">Buzzer</span>
+          <span class="tagline">Investments simplified.</span>
+        </a>
       </div>
-    </nav>
+      <ul class="nav navbar-nav">
+        <li class="active"><button type="button" class="btn btn-link" ng-click="navigate('home')" ng-class="{ 'active': location('home') }">Feed</button></li>
+      </ul>
+    </div>
+  </nav>
 
+  <main class="content">
     <div class="container-fluid">
       <div ng-view></div>
     </div>

@@ -4,7 +4,7 @@ var minifyCSS = require('gulp-csso');
 var plumber = require('gulp-plumber');
 var concat = require('gulp-concat');
 var gulpsync = require('gulp-sync')(gulp);
-var serve = require('gulp-serve')(gulp);
+var webserver = require('gulp-webserver');
 
 var paths = {
   less: './assets/less/*.less',
@@ -46,7 +46,16 @@ gulp.task('copy-files', function () {
 
 gulp.task('build', gulpsync.sync(['copy-files', 'concat-js', 'less']));
 
-gulp.task('serve', serve('./'));
+gulp.task('serve', function() {
+  gulp.src('./')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: false,
+      host: '0.0.0.0',
+      port: 3000,
+      open: false
+    }));
+});
 
 // Rerun the task when a file changes
 gulp.task('watch', function () {
