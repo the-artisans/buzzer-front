@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#ed7902">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="O restaurante para todos os gostos">
+
+  <base href="/">
+
+  <link rel="stylesheet" href="build/assets/scripts/components-font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="build/assets/css/app.css">
+
+  <title>MyKitchen</title>
+</head>
+
+<body ng-app="MyKitchen">
+
+  <main class="content">
+    <div class="container-fluid" ng-controller="ShellController">
+      <header>
+        <div class="site-title">
+          <h1><a href="/">MyKitchen</a></h1>
+          <nav class="nav-links">
+            <button type="button" class="btn btn-link" ng-click="navigate('home')" ng-class="{ 'active': location('home') }">Comentários</button>
+            <button type="button" class="btn btn-link" ng-click="navigate('admin')" ng-class="{ 'active': location('admin') }">Admin</button>
+          </nav>
+        </div>
+      </header>
+
+      <div ng-view></div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <script src="build/app.js"></script>
+</body>
+
+</html>
