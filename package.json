@@ -12,22 +12,15 @@
     "gulp-plumber": "^1.1.0",
     "gulp-serve": "^1.4.0",
     "gulp-sync": "^0.1.4",
-    "less": "^2.7.2"
+    "less": "^2.7.2",
+    "surge": "^0.19.0"
   },
   "scripts": {
     "build": "npm install && bower install && gulp build",
     "watch": "gulp watch",
     "start": "npm install && bower install && gulp build && gulp serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danguilherme/MyKitchen.git"
+    "deploy": "surge ./"
   },
   "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/danguilherme/MyKitchen/issues"
-  },
-  "homepage": "https://github.com/danguilherme/MyKitchen#readme"
+  "license": "MIT"
 }

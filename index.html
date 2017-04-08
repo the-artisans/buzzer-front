@@ -5,32 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#ed7902">
+  <meta name="theme-color" content="#524df4">
   <meta name="robots" content="noindex">
-  <meta name="description" content="O restaurante para todos os gostos">
+  <meta name="description" content="Investments simplified">
 
   <base href="/">
 
   <link rel="stylesheet" href="build/assets/scripts/components-font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="build/assets/css/app.css">
 
-  <title>MyKitchen</title>
+  <title>Buzzer</title>
 </head>
 
-<body ng-app="MyKitchen">
+<body ng-app="buzzer">
 
-  <main class="content">
-    <div class="container-fluid" ng-controller="ShellController">
-      <header>
-        <div class="site-title">
-          <h1><a href="/">MyKitchen</a></h1>
-          <nav class="nav-links">
-            <button type="button" class="btn btn-link" ng-click="navigate('home')" ng-class="{ 'active': location('home') }">Comentários</button>
-            <button type="button" class="btn btn-link" ng-click="navigate('admin')" ng-class="{ 'active': location('admin') }">Admin</button>
-          </nav>
+  <main class="content" ng-controller="ShellController">
+    <nav class="navbar navbar-buzzer">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">
+            <span class="brand">Buzzer</span>
+            <span class="tagline">Investments simplified.</span>
+          </a>
         </div>
-      </header>
+        <ul class="nav navbar-nav">
+          <li class="active"><button type="button" class="btn btn-link" ng-click="navigate('home')" ng-class="{ 'active': location('home') }">Feed</button></li>
+        </ul>
+      </div>
+    </nav>
 
+    <div class="container-fluid">
       <div ng-view></div>
     </div>
   </main>

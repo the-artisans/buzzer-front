@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Insaniburger";
-  src: url('/assets/fonts/insaniburger/Insanibc.woff') format('woff'),
-        url('/assets/fonts/insaniburger/Insanibc.ttf') format('truetype');
+  src: url('/assets/fonts/insaniburger/Insanibc.woff') format('woff'), url('/assets/fonts/insaniburger/Insanibc.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -21,10 +20,8 @@ header {
   padding-bottom: 2em;
   text-align: left;
   overflow: auto;
-
   .site-title {
     display: inline-block;
-
     h1 {
       margin: 0;
       font-size: 4em;
@@ -33,7 +30,6 @@ header {
       &:first-letter {
         font-size: 2em;
       }
-
       a,
       a:hover,
       a:focus {
@@ -41,134 +37,48 @@ header {
         text-decoration: none;
       }
     }
-
-    .nav-links {
-      color: @brand-primary;
-      text-align: left;
-      padding: 0 5px;
-      border-top: 1px solid @brand-primary;
-      border-bottom: 1px solid @brand-primary;
-
-      .btn-link {
-        padding: 0;
-        outline: none;
-      }
-
-      .active {
-        font-weight: bold;
-      }
-    }
   }
 }
 
 .navbar.navbar-buzzer {
+  background-color: white;
+  box-shadow: 0px 2px 5px #ddd;
+  border-radius: 0;
+  .container-fluid {
+    display: flex;
+    align-items: stretch;
+  }
   .navbar-brand {
     height: auto;
     display: flex;
     flex-direction: column;
-
     .brand {
       margin: 0;
       font-family: 'Insaniburger';
-        font-size: 1.5em;   
+      font-size: 1.5em;
       &:first-letter {
         font-size: 1.5em;
       }
     }
     .tagline {
       font-size: .7em;
-      line-height: .5;
+      line-height: 1;
     }
   }
-}
-
-.new-comment-box {
-  border: 1px solid @brand-primary;
-  background: #fff;
-  padding: 10px;
-  border-radius: 3px;
-
-  h3 {
-    margin-top: 0;
-  }
-
-  label {
-    text-transform: uppercase;
-    margin-bottom: 0;
-  }
-}
-
-#admin {
-  .filters {
-    .panel {
-      border-color: @brand-primary;
+  .navbar-nav {
+    flex: 1;
+    li,
+    .btn-link {
+      height: 100%;
     }
-
-    .panel-heading {
-      padding-top: 0;
-      padding-bottom: 0;
-      background: none;
-      border: none;
-
-      h2 {
-        display: flex;
-        width: 100%;
-
-        .icon-filter {
-          padding-right: 10px;
-          align-self: flex-start;
-        }
-
-        .heading-title {
-          flex-grow: 1;
-        }
-
-        .btn-filter {
-          align-self: center;
-        }
+    .btn-link {
+      &.active {
+        font-weight: bold;
       }
-    }
-
-    .collapsible {
-      overflow: hidden;
-      transition: max-height .5s ease-in;
-    }
-
-    .panel-body {
-      padding-top: 0;
-    }
-
-    label {
-      margin: 0;
-    }
-
-    .categories-filter {
-
-      ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      category-tag {
-        width: 100%;
-      }
-
-      .help-block {
-        margin-top: 0;
-      }
-
-    }
-
-    @media (max-width: @screen-sm-min) {
-      .panel-heading {
-        padding-bottom: 10px;
-      }
-      .collapsible {
-        max-height: 0;
-        &.expanded {
-          max-height: 1000px;
-        }
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        text-decoration: none;
       }
     }
   }

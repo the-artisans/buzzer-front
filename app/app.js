@@ -1,5 +1,5 @@
-angular.module('MyKitchen', ['ngRoute', 'ngTagsInput'])
-  .constant('API_BASE_URL', 'http://prova-front.dcide.info/api/')
+angular.module('buzzer', ['ngRoute'])
+  .constant('API_BASE_URL', 'http://api.url/')
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
