@@ -1,0 +1,8 @@
+assets/scripts/
+assets/less/
+build/assets/scripts/
+build/assets/less/
+!build/assets/scripts/components-font-awesome/css/font-awesome.min.css 
+!build/assets/scripts/components-font-awesome/fonts/**/*
+design/
+app/**/*.js
