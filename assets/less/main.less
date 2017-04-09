@@ -1,12 +1,33 @@
 @font-face {
-  font-family: "Insaniburger";
-  src: url('/assets/fonts/insaniburger/Insanibc.woff') format('woff'), url('/assets/fonts/insaniburger/Insanibc.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Open Sans';
   font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Semibold'), local('OpenSans-Regular'), url('/assets/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Semibold'), local('OpenSans-Regular'), url('/assets/fonts/OpenSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('/assets/fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('/assets/fonts/OpenSans-SemiboldItalic.ttf') format('truetype');
 }
 
 body {
-  background-color: lighten(@brand-primary, 33%);
+  background-color: @body-bg;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -18,75 +39,38 @@ body {
 
 header {
   padding-bottom: 2em;
-  text-align: left;
-  overflow: auto;
-  .site-title {
-    display: inline-block;
-    h1 {
-      margin: 0;
-      font-size: 4em;
-      font-family: 'Insaniburger';
-      line-height: 1;
-      &:first-letter {
-        font-size: 2em;
-      }
-      a,
-      a:hover,
-      a:focus {
-        color: @brand-primary;
-        text-decoration: none;
-      }
-    }
-  }
 }
 
-.navbar.navbar-buzzer {
-  background-color: white;
-  box-shadow: 0px 2px 5px #ddd;
-  border-radius: 0;
-  .container-fluid {
-    display: flex;
-    align-items: stretch;
-  }
-  .navbar-brand {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    .brand {
-      margin: 0;
-      font-family: 'Insaniburger';
-      font-size: 1.5em;
-      &:first-letter {
-        font-size: 1.5em;
-      }
-    }
-    .tagline {
-      font-size: .7em;
-      line-height: 1;
-    }
-  }
-  .navbar-nav {
-    flex: 1;
-    margin: 0;
-    li,
-    .btn-link {
-      height: 100%;
-    }
-    .btn-link {
-      &.active {
-        font-weight: bold;
-      }
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        text-decoration: none;
-      }
-    }
-  }
-}
+// .navbar.navbar-buzzer {
+//   box-shadow: 0px 2px 5px #ddd;
+//   .container-fluid {
+//     display: flex;
+//     align-items: stretch;
+//   }
+//   .navbar-nav {
+//     flex: 1;
+//     margin: 0;
+//     li,
+//     .btn-link {
+//       height: 100%;
+//     }
+//     .btn-link {
+//       &.active {
+//         font-weight: bold;
+//       }
+//       &:hover,
+//       &:focus {
+//         background-color: transparent;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
 
 footer {
   background-color: @brand-primary;
-  height: 1em;
+  color: @text-color-inverse;
   margin-top: 1em;
+  padding: .5em;
+  text-align: center;
 }

@@ -1,18 +1,9 @@
 angular.module('buzzer')
   .controller('ShellController', ['$scope', '$route', '$location', function ShellController($scope, $route, $location) {
 
-    function location(page) {
-      return $route.current && $route.current.$$route.name === page;
-    }
-
-    function navigate(page) {
-      switch (page) {
-        case 'home':
-          $location.path('/');
-          break;
-      }
-    }
-
-    $scope.location = location;
-    $scope.navigate = navigate;
+    $scope.user = {
+      name: 'Guilherme Ventura',
+      email: 'guilhermeventura2@gmail.com',
+      emailHash: '4c63581802d04203e3f0ab00c72a2410'
+    };
   }]);

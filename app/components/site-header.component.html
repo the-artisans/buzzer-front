@@ -1,0 +1,29 @@
+<header>
+  <nav class="navbar navbar-buzzer">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">
+          <img src="/assets/imgs/nectar-logo.png" alt="Nectar Financial" height="30px">
+        </a>
+      </div>
+      <div class="user-profile">
+        <a href="/#!/user-profile">
+          <span class="user-name">{{$ctrl.user.name}}</span><img src="https://www.gravatar.com/avatar/{{$ctrl.user.emailHash}}?s=40"
+            alt="User image">
+        </a>
+      </div>
+    </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-menu">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="page in $ctrl.pages">
+          <button type="button" class="btn btn-link" ng-click="$ctrl.navigate(page.route)" ng-class="{ 'active': $ctrl.location(page.route) }">
+            <fa-icon icon="{{page.icon}}"></fa-icon>{{page.label}}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
