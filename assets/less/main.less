@@ -85,6 +85,29 @@ footer {
   }
 }
 
+.buzzer-panel {
+  .card();
+  display: flex;
+  flex-direction: column-reverse;
+  &-title {
+    background-color: @brand-primary;
+    color: @text-color-inverse;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2px 5px;
+  }
+  &-body {
+    flex: 1;
+    padding: 1em;
+  }
+  &-secondary {
+    flex-direction: column;
+    .buzzer-panel-title {
+      text-transform: none;
+    }
+  }
+}
+
 .stock {
   &-positive {
     color: @stock-positive;
@@ -98,5 +121,24 @@ footer {
   .investments {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+#report {
+  .my-portfolio {
+    >.buzzer-panel-body {
+      display: flex;
+      padding: 0;
+      @media (max-width: @screen-xs-max) {
+        flex-direction: column;
+      }
+      .buzzer-panel {
+        flex: 1;
+      }
+    }
+    .buzzer-panel {
+      box-shadow: none;
+      margin: 0;
+    }
   }
 }

@@ -3,5 +3,40 @@
     <div class="col-md-3">
       <user-details-card user="user" ng-if="user"></user-details-card>
     </div>
+    <div class="col-md-3">
+      <div class="buzzer-panel">
+        <div class="buzzer-panel-title">My Performance</div>
+        <div class="buzzer-panel-body">
+          RoI, deviation
+        </div>
+      </div>
+      <div class="buzzer-panel">
+        <div class="buzzer-panel-title">My Fund Scale</div>
+        <div class="buzzer-panel-body">
+          charts
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="buzzer-panel my-portfolio">
+        <div class="buzzer-panel-title">My Porfolio</div>
+        <div class="buzzer-panel-body">
+
+          <div class="buzzer-panel buzzer-panel-secondary">
+            <div class="buzzer-panel-title">Last Trades</div>
+            <div class="buzzer-panel-body investment-list">
+              <investment-card ng-repeat="product in products" product="product"></investment-card>
+            </div>
+          </div>
+          <div class="buzzer-panel buzzer-panel-secondary">
+            <div class="buzzer-panel-title">Review</div>
+            <div class="buzzer-panel-body charts">
+              Charts
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
