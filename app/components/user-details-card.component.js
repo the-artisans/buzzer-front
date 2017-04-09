@@ -3,7 +3,14 @@ angular.module('buzzer').component('userDetailsCard', {
   bindings: {
     'user': '<'
   },
-  controller: ['$scope', '$route', '$location', function InvestmentCardController($scope, $route, $location) {
+  controller: ['$scope', 'AuthFactory', '$location', function InvestmentCardController($scope, AuthFactory, $location) {
     var ctrl = this;
+
+    function init() {
+      ctrl.isMe = AuthFactory.getLoggedUser()._id === ctrl.user.id;
+      ctrl.isPopular = true;
+    }
+
+    ctrl.$onInit = init;
   }]
 });

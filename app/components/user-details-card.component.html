@@ -1,33 +1,38 @@
-<article>
+<article class="card">
   <header>
     <div class="popular-investor">
-      <fa-icon icon="diamond"></fa-icon>
+      <fa-icon icon="diamond" title="Popular investor" ng-if="$ctrl.isPopular"></fa-icon>
     </div>
-    <div class="controls">
-
+    <div class="controls" ng-if="!$ctrl.isMe">
+      <fa-icon icon="check-circle" class="following-icon" ng-class="{ 'is-following': $ctrl.isFollowing }"></fa-icon>
+      <fa-icon icon="files-o" class="mimicking-icon"></fa-icon>
     </div>
     <div class="user-pic-wrapper">
-      <img src="{{$ctrl.userImageSrc}}" alt="{{$ctrl.user.name}}'s photo" class="user-pic">
+      <gravatar-image hash="{{$ctrl.user.emailHash}}" size="100" alt="{{$ctrl.user.name}}'s photo" class="user-pic"></gravatar-image>
     </div>
   </header>
-  <section>
+  <section class="body">
+    <div class="user-info">
+      <div class="name">{{$ctrl.user.name}}</div>
+      <div class="occupation">{{$ctrl.user.occupation}}</div>
+    </div>
     <section class="followers">
       <div class="vertical-info-item">
-        <span class="label">Followers</span>
+        <span class="item-label">Followers</span>
         <div class="count">{{$ctrl.user.followerCount}}</div>
       </div>
       <div class="vertical-info-item">
-        <span class="label">Mimickers</span>
+        <span class="item-label">Mimickers</span>
         <div class="count">{{$ctrl.user.mimickedCount}}</div>
       </div>
     </section>
     <section class="following">
       <div class="vertical-info-item">
-        <span class="label">Following</span>
+        <span class="item-label">Following</span>
         <div class="count">{{$ctrl.user.following.length}}</div>
       </div>
       <div class="vertical-info-item">
-        <span class="label">Mimicking</span>
+        <span class="item-label">Mimicking</span>
         <div class="count">{{$ctrl.user.mimicking.length}}</div>
       </div>
     </section>
