@@ -1,6 +1,6 @@
 angular.module('buzzer')
   .controller('ReportController', ['$scope', 'FeedService', 'AuthFactory', function ReportController($scope, FeedService, AuthFactory) {
-    $scope.user = AuthFactory.getLoggedUser();
+    $scope.user = null;
     $scope.products = [{
       _id: '58e9f8fb3ffeffe83de2c3cb',
       name: 'AAPL',
@@ -25,9 +25,13 @@ angular.module('buzzer')
     }];
 
     function init() {
+      fetchProfileData();
     }
 
-    function fetchDashboardData() {
+    function fetchProfileData() {
+      FeedService.userProfile().then(function(data) {
+        $scope.user = data.user;
+      });
     }
 
     init();

@@ -1,7 +1,7 @@
 // dashboard service
 angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthFactory', '$q', function FeedService(API_BASE_URL, $http, AuthFactory, $q) {
   // API_BASE_URL is set as a constant on app.js
-  var baseUrl = API_BASE_URL + 'dashboard';
+  var baseUrl = API_BASE_URL;
 
   function createMock(data) {
     return $q(res => res({
@@ -45,11 +45,53 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
     });
   }
 
+  function mockPostProfile() {
+    return createMock({
+      result:
+      {
+        user:
+        {
+          _id: '58e8d7e6a4f8e33ec891e709',
+          name: 'John Doe',
+          email: 'john.doe@gmail.com',
+          occupation: 'Software Developer @ Cisco',
+          __v: 6,
+          overallReport: [Object],
+          deleted: false,
+          portfolios: [],
+          products: [Object],
+          availableAmount: 0,
+          mimicking: [],
+          mimickedCount: 0,
+          following: [],
+          followerCount: 0,
+          emailHash: 'e13743a7f1db7f4246badd6fd6ff54ff',
+          id: '58e8d7e6a4f8e33ec891e709',
+          followingCount: 0,
+          mimickingCount: 0,
+          investmentAmount: 1327.35
+        },
+        benchmark: 0.001995216041993
+      }
+    });
+  }
+
   this.userDashboard = function allInvestments() {
     var loggedUserId = AuthFactory.getLoggedUser()._id;
     return (
       // mockPostDashboard()
-      $http.post(baseUrl, { userId: loggedUserId })
+      $http.post(baseUrl + 'dashboard', { userId: loggedUserId })
+        .then(function onSuccess(response) {
+          return response.data.result;
+        })
+    );
+  }
+
+  this.userProfile = function userDashboard(user) {
+    user = user || AuthFactory.getLoggedUser();
+    return (
+      // mockPostProfile()
+      $http.post(baseUrl + 'profile', { userId: user._id })
         .then(function onSuccess(response) {
           return response.data.result;
         })
