@@ -1,6 +1,7 @@
 angular.module('buzzer').component('siteHeader', {
   templateUrl: 'app/components/site-header.component.html',
   bindings: {
+    'infoBarData': '=',
     'user': '='
   },
   controller: ['$scope', '$route', '$location', function SiteHeaderController($scope, $route, $location) {

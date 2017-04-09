@@ -3,9 +3,9 @@
   <div class="investment-name">{{$ctrl.product.name}}</div>
   <div class="details">
     <div class="value">{{$ctrl.sign($ctrl.revenue)}}{{$ctrl.revenue | currency:'$':3}}</div>
-    <div class="user-mimicked" ng-if="$ctrl.product.mimick" title="You are mimicking {{$ctrl.product.mimick.name}} in this product">
-      <a href="/#!/user/{{$ctrl.product.mimick._id}}">
-        <img src="https://www.gravatar.com/avatar/{{$ctrl.product.mimick.emailHash}}?s=16" alt="Mimicking user">
+    <div class="user-mimicked" ng-if="$ctrl.product.mimickUser" title="You are mimicking {{$ctrl.product.mimickUser.name}} in this product">
+      <a href="/#!/user/{{$ctrl.product.mimickUser._id}}">
+        <img src="https://www.gravatar.com/avatar/{{$ctrl.product.mimickUser.emailHash}}?s=16" alt="Mimicking user">
       </a>
     </div>
     <div class="controls" ng-if="false">
