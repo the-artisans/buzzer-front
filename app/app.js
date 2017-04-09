@@ -17,6 +17,11 @@ angular.module('buzzer', ['ngRoute', 'ui.bootstrap'])
         templateUrl: 'app/page-report/report.html',
         controller: 'ReportController'
       })
+      .when('/report/:userId', {
+        name: 'user-report',
+        templateUrl: 'app/page-report/report.html',
+        controller: 'ReportController'
+      })
       .when('/friends', {
         name: 'friends',
         templateUrl: 'app/under-construction/under-construction.html',

@@ -40,11 +40,11 @@ angular.module('buzzer').factory('AuthFactory', ['$http', function AuthFactory($
         "emailHash": "e13743a7f1db7f4246badd6fd6ff54ff",
         "id": "58e8d7e6a4f8e33ec891e709"
       }, {
-          _id: '58e8d7e6a4f8e33ec891e709',
-          name: 'Guilherme Ventura',
-          occupation: 'Front-end developer & investor as hobby',
-          email: 'guilhermeventura2@gmail.com',
-          emailHash: '4c63581802d04203e3f0ab00c72a2410'
+          // _id: '58e8d7e6a4f8e33ec891e709',
+          // name: 'Guilherme Ventura',
+          // occupation: 'Front-end developer & investor as hobby',
+          // email: 'guilhermeventura2@gmail.com',
+          // emailHash: '4c63581802d04203e3f0ab00c72a2410'
         })
     }
   }

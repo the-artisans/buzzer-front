@@ -88,10 +88,10 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
   }
 
   this.userProfile = function userDashboard(user) {
-    user = user || AuthFactory.getLoggedUser();
+    user = user || AuthFactory.getLoggedUser()._id;
     return (
       // mockPostProfile()
-      $http.post(baseUrl + 'profile', { userId: user._id })
+      $http.post(baseUrl + 'profile', { userId: user })
         .then(function onSuccess(response) {
           return response.data.result;
         })
