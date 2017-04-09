@@ -1,10 +1,5 @@
 <div id="dashboard">
   <div class="investments">
-    <investment-card ng-repeat="item in data" is-positive="item.isPositive"></investment-card>
+    <investment-card ng-repeat="item in investments" investment="item"></investment-card>
   </div>
-  <!--<div class="col-lg-8">
-  </div>
-  <div class="col-lg-4">
-    <feed-timeline></feed-timeline>
-  </div>-->
 </div>
