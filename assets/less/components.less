@@ -325,10 +325,12 @@ side-bar {
     z-index: 1;
     border: 1px solid @text-color-light;
     border-top: white 2px solid;
-    transition: transform .5s ease-in-out;
-    transform: translateX(100%);
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
     &.opened {
-      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
     }
   }
   .toolbar {
