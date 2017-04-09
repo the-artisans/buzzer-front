@@ -1,0 +1,15 @@
+<div class="card" ng-class="{ 'positive': $ctrl.isPositive, 'negative': !$ctrl.isPositive }">
+  <div class="percentage">{{$ctrl.isPositive ? '+67.87%' : '-24.45%'}}</div>
+  <div class="investment-name">INVESTMENT NAME</div>
+  <div class="details">
+    <div class="value">{{$ctrl.isPositive ? '+ $5,877.81' : '- $ 2,286.62'}}</div>
+    <div class="user-mimicked">
+      <img src="https://www.gravatar.com/avatar/4c63581802d04203e3f0ab00c72a2410?s=16" alt="Mimicking user">
+    </div>
+    <div class="controls">
+      <fa-icon icon="pause" class="pause-investment" ng-if="$ctrl.state('resumed')"  ng-click="$ctrl.setState('paused')"></fa-icon>
+      <fa-icon icon="play" class="resume-investment" ng-if="$ctrl.state('paused')"  ng-click="$ctrl.setState('resumed')"></fa-icon>
+      <fa-icon icon="close" class="stop-investment"></fa-icon>
+    </div>
+  </div>
+</div>

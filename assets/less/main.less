@@ -65,14 +65,28 @@ body {
   flex: 1;
 }
 
-header {
-  padding-bottom: 2em;
-}
-
 footer {
   background-color: @brand-primary;
   color: @text-color-inverse;
   margin-top: 1em;
   padding: .5em;
   text-align: center;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 0 3px 2px #ddd;
+  margin: 15px;
+  transition: box-shadow linear .7s;
+  cursor: default;
+  &:hover {
+    box-shadow: 0 0 4px 3px #ddd;
+  }
+}
+
+#dashboard {
+  .investments {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

@@ -4,6 +4,6 @@ angular.module('buzzer').component('feedTimeline', {
   },
   controller: ['$scope', '$element', '$timeout',
     function FeedTimelineController($scope, $element, $timeout) {
-
+      var ctrl = this;
     }]
 });

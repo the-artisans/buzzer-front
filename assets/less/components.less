@@ -90,10 +90,10 @@ info-bar {
   display: flex;
   align-items: stretch;
   background: #fff;
-  border: 1px black solid;
+  border: 1px @text-color solid;
   border-top: none;
   cursor: default;
-  font-weight: bold;
+  font-weight: 600;
   padding: 0 @navbar-padding-horizontal;
 
   &>div {
@@ -198,5 +198,74 @@ user-stock-info {
   .user-name {
     margin-top: 0;
     margin-bottom: 0px;
+  }
+}
+
+investment-card {
+  display: block;
+  .card {
+    display: flex;
+    flex-direction: column;
+    &.positive .percentage {
+      background-color: @stock-positive;
+    }
+    &.negative .percentage {
+      background-color: @stock-negative;
+    }
+  }
+  .percentage {
+    font-weight: 600;
+    font-size: 2em;
+    color: @text-color-inverse;
+    text-align: center;
+    padding: 0.5em 1.5em;
+  }
+  .investment-name {
+    font-weight: 600;
+    text-align: center;
+    background: @brand-primary;
+    color: @text-color-inverse;
+    padding: 2px;
+  }
+  .details {
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    .value {
+      flex: 1;
+    }
+    .user-mimicked img {
+      border-radius: 50%;
+      border: 2px @brand-primary solid;
+      vertical-align: baseline;
+    }
+    .controls {
+      margin-left: 5px;
+      fa-icon {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: .5em;
+        display: inline-block;
+        position: relative;
+        color: @text-color-inverse;
+        &.pause-investment {
+          background: @stock-negative;
+        }
+        &.resume-investment {
+          background: @stock-positive;
+        }
+        &.stop-investment {
+          background: @brand-primary;
+        }
+        .fa {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          top: 50%;
+        }
+      }
+    }
   }
 }
