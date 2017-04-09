@@ -1,43 +1,50 @@
 <div class="date-and-time">
-  April 8, 2017 - 9:00 PM
+  <time datetime="{{$ctrl.currentTimeISO}}">{{$ctrl.currentTime}}</time>
 </div>
 <div class="losses-and-gains">
   <div class="gains">
     <span class="icon icon-positive">+</span>
-    <span class="count">(11)</span>
+    <span class="count">({{$ctrl.gainsCount}})</span>
   </div>
   <div class="losses">
     <span class="icon icon-negative">-</span>
-    <span class="count">(13)</span>
+    <span class="count">({{$ctrl.lossesCount}})</span>
   </div>
 </div>
 <div class="amount">
   <div class="initial-amount">
     <span class="initial-amount-label">Initial amount: </span>
-    <span class="initial-amount-value">$ 3.000,00</span>
+    <span class="initial-amount-value">{{$ctrl.initialAmount | currency:'$':3}}</span>
   </div>
   <div class="current-amount">
     <span class="current-amount-label">Today amount: </span>
-    <span class="current-amount-value">$ 3.500,00</span>
+    <span class="current-amount-value">{{$ctrl.currentAmount | currency:'$':3}}</span>
   </div>
   <div class="average-performance">
     <span class="average-performance-label">Average performance: </span>
-    <span class="average-performance-value">+20%</span>
+    <span class="average-performance-value" ng-class="{ 'stock-positive': $ctrl.averagePerformance > 0, 'stock-negative': $ctrl.averagePerformance < 0 }">
+      {{$ctrl.sign($ctrl.averagePerformance)}}{{$ctrl.averagePerformance | number:2}}%
+    </span>
   </div>
 </div>
 <div class="filter">
-  <div class="dropdown">
-    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
+  <div class="dropdown" uib-dropdown>
+    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="true" uib-dropdown-toggle>
+        Filter by:
+        <strong class="active-filter">{{$ctrl.activeFilterText()}}</strong>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="filterDropdown" uib-dropdown-menu keyboard-nav>
+      <li ng-class="{'active': $ctrl.filter('all_investments')}">
+        <a ng-click="$ctrl.setFilter('all_investments')">{{$ctrl.filterText('all_investments')}}</a>
+      </li>
+      <li ng-class="{'active': $ctrl.filter('own_investments')}">
+        <a ng-click="$ctrl.setFilter('own_investments')">{{$ctrl.filterText('own_investments')}}</a>
+      </li>
+      <li ng-class="{'active': $ctrl.filter('mimicked_investments')}">
+        <a ng-click="$ctrl.setFilter('mimicked_investments')">{{$ctrl.filterText('mimicked_investments')}}</a>
+      </li>
     </ul>
   </div>
 </div>

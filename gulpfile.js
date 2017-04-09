@@ -9,10 +9,10 @@ var webserver = require('gulp-webserver');
 var paths = {
   less: './assets/less/*.less',
   vendorScripts: [
-    './assets/scripts/tinycolor/dist/tinycolor-min.js',
     './assets/scripts/angular/angular.min.js',
     './assets/scripts/angular-route/angular-route.min.js',
-    './assets/scripts/ng-tags-input/ng-tags-input.min.js'
+    './assets/scripts/angular-bootstrap/ui-bootstrap.min.js',
+    './assets/scripts/moment/min/moment.min.js'
   ]
 }
 
@@ -49,7 +49,7 @@ gulp.task('build', gulpsync.sync(['copy-files', 'concat-js', 'less']));
 gulp.task('serve', function() {
   gulp.src('./')
     .pipe(webserver({
-      livereload: true,
+      livereload: false,
       directoryListing: false,
       host: '0.0.0.0',
       port: 3000,

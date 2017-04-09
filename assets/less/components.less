@@ -169,7 +169,6 @@ info-bar {
   }
   .amount {
     flex: 3;
-    font-weight: bold;
     text-align: center;
     &>div {
       display: inline-block;
@@ -181,6 +180,9 @@ info-bar {
     flex: 1;
     @media (min-width: @screen-xs-max) {
       padding-right: 0;
+    }
+    a {
+      cursor: pointer;
     }
   }
 

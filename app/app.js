@@ -1,4 +1,4 @@
-angular.module('buzzer', ['ngRoute'])
+angular.module('buzzer', ['ngRoute', 'ui.bootstrap'])
   .constant('API_BASE_URL', 'http://api.url/')
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
