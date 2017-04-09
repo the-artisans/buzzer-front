@@ -58,9 +58,13 @@ site-header {
           &:not(:last-child) .btn-link {
             border-right: 1px solid @text-color-light;
           }
-          .btn-link.active {
+          &:first-child .btn-link.active {
             border-left: 1px solid @text-color-light;
+          }
+          &:last-child .btn-link.active {
             border-right: 1px solid @text-color-light;
+          }
+          .btn-link.active {
             background: @body-bg;
           }
         }

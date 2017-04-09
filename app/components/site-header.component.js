@@ -32,11 +32,7 @@ angular.module('buzzer').component('siteHeader', {
     }
 
     function navigate(page) {
-      switch (page) {
-        case 'dashboard':
-          navigateByName('dashboard');
-          break;
-      }
+      navigateByName(page);
     }
 
     function navigateByName(name) {
