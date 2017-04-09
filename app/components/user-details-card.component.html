@@ -1,0 +1,38 @@
+<article>
+  <header>
+    <div class="popular-investor">
+      <fa-icon icon="diamond"></fa-icon>
+    </div>
+    <div class="controls">
+
+    </div>
+    <div class="user-pic-wrapper">
+      <img src="{{$ctrl.userImageSrc}}" alt="{{$ctrl.user.name}}'s photo" class="user-pic">
+    </div>
+  </header>
+  <section>
+    <section class="followers">
+      <div class="vertical-info-item">
+        <span class="label">Followers</span>
+        <div class="count">{{$ctrl.user.followerCount}}</div>
+      </div>
+      <div class="vertical-info-item">
+        <span class="label">Mimickers</span>
+        <div class="count">{{$ctrl.user.mimickedCount}}</div>
+      </div>
+    </section>
+    <section class="following">
+      <div class="vertical-info-item">
+        <span class="label">Following</span>
+        <div class="count">{{$ctrl.user.following.length}}</div>
+      </div>
+      <div class="vertical-info-item">
+        <span class="label">Mimicking</span>
+        <div class="count">{{$ctrl.user.mimicking.length}}</div>
+      </div>
+    </section>
+  </section>
+  <footer>
+    A Nectar investor since <strong>1840</strong>
+  </footer>
+</article>
