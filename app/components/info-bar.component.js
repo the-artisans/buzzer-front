@@ -1,10 +1,11 @@
 angular.module('buzzer').component('infoBar', {
   templateUrl: 'app/components/info-bar.component.html',
   bindings: {
+    overallRate: '<',
     activeFilter: '<',
     onFilterChange: '&'
   },
-  controller: ['$scope', '$interval', '$location', function InfoBarController($scope, $interval, $location) {
+  controller: ['$scope', '$interval', '$filter', function InfoBarController($scope, $interval, $filter) {
     var DATE_FORMAT = 'MMMM D, YYYY - h:mm A';
     var FILTER_ALL = 'all_investments';
     var FILTER_MINE = 'own_investments';
@@ -18,7 +19,7 @@ angular.module('buzzer').component('infoBar', {
     ctrl.lossesCount = 13;
     ctrl.initialAmount = 3000;
     ctrl.currentAmount = 3000;
-    ctrl.averagePerformance = 2.3;
+    ctrl.averagePerformance = 49.45;
 
     function init() {
       updateTime();
@@ -33,7 +34,7 @@ angular.module('buzzer').component('infoBar', {
     }
 
     function sign(number) {
-      return number >= 0 ? '+' : '-';
+      return number >= 0 ? '+' : '';
     }
 
     function filter(filter) {

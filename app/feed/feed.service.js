@@ -1,45 +1,67 @@
-angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', function FeedService(API_BASE_URL, $http) {
+// dashboard service
+angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthFactory', '$q', function FeedService(API_BASE_URL, $http, AuthFactory, $q) {
   // API_BASE_URL is set as a constant on app.js
-  var baseUrl = API_BASE_URL + 'feed';
+  var baseUrl = API_BASE_URL + 'dashboard';
 
-  function mock() {
-    return new Promise(res => res([{
-      investmentName: 'AAPL',
-      return: '+2.4%',
-      amount: '+ $ 23,45',
-      amountValue: 23.45,
-      mimicking: 789 // an user id?
-    }, {
-      investmentName: 'MSFT',
-      return: '+3%',
-      amount: '+ $ 32,09',
-      amountValue: 32.09,
-      mimicking: null
-    }, {
-      investmentName: 'GOOG',
-      return: '+1%',
-      amount: '+ $ 510,23',
-      amountValue: 510.23,
-      mimicking: 12345 // an user id?
-    }, {
-      investmentName: 'SANM',
-      return: '-0.12%',
-      amount: '- $ 4,23',
-      amountValue: -4.23,
-      mimicking: null
-    }, {
-      investmentName: 'FB',
-      return: '+29.32%',
-      amount: '+ $ 301,11',
-      amountValue: 301.11,
-      mimicking: null
-    }]));
+  function createMock(data) {
+    return $q(res => res({
+      data: data
+    }));
+  }
+
+  function mockDashboard() {
+    return createMock({
+      result: {
+        _id: '58e8d7e6a4f8e33ec891e709',
+        overallReport: {
+          _id: '58e9ff48666952f0d4399f46',
+          standardDeviation: 0.1,
+          averageRateOfRoi: 0.994,
+          __v: 0
+        },
+        products: [{
+          _id: '58e9f8fb3ffeffe83de2c3cb',
+          name: 'AAPL',
+          startTime: '1491494400000',
+          startPrice: 144,
+          currentPrice: 287.28,
+          mimick: AuthFactory.getLoggedUser(),
+          unitNumber: 1,
+          rateOfRoi: 0.995,
+          __v: 0,
+          sold: false
+        }, {
+          _id: '58e9fad0820d04e951577c10',
+          name: 'AAON',
+          startTime: '1491494400000',
+          startPrice: 34.5,
+          currentPrice: 34.293,
+          // endPrice: 34.3, // didn't sell, no endPrice
+          mimick: null,
+          unitNumber: 34.3,
+          rateOfRoi: -0.006,
+          __v: 0,
+          sold: false
+        }]
+      }
+    });
   }
 
   this.allInvestments = function allInvestments() {
-    return mock();
+    return mockDashboard();
     // return $http.get(baseUrl).then(function onSuccess(response) {
     //   return response.data;
     // });
+  }
+
+  this.userDashboard = function allInvestments() {
+    var loggedUserId = AuthFactory.getLoggedUser()._id;
+    return (
+      mockDashboard()
+        // $http.post(baseUrl, { userId: loggedUserId })
+        .then(function onSuccess(response) {
+          return response.data.result;
+        })
+    );
   }
 }]);

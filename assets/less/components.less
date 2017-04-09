@@ -98,7 +98,11 @@ site-header {
       }
       .menu-container {
         text-align: right;
+        position: relative;
+        padding-right: 20px;
         .open-menu {
+          position: absolute;
+          right: 0;
           font-size: 1.5em;
           cursor: pointer;
         }
@@ -264,14 +268,19 @@ investment-card {
     .value {
       flex: 1;
     }
-    .user-mimicked img {
-      border-radius: 50%;
-      border: 2px @brand-primary solid;
-      vertical-align: baseline;
-      margin-left: 5px;
+    .user-mimicked {
+      line-height: 0;
+      img {
+        cursor: pointer;
+        border-radius: 50%;
+        border: 2px @brand-primary solid;
+        vertical-align: baseline;
+        margin-left: 5px;
+      }
     }
     .controls {
       margin-left: 5px;
+      line-height: 0;
       fa-icon {
         cursor: pointer;
         width: 20px;

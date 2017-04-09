@@ -1,7 +1,7 @@
 angular.module('buzzer').component('investmentCard', {
   templateUrl: 'app/components/investment-card.component.html',
   bindings: {
-    'investment': '<'
+    'product': '<'
   },
   controller: ['$scope', '$route', '$location', function InvestmentCardController($scope, $route, $location) {
     var STATE_RESUMED = 'resumed';
@@ -9,6 +9,11 @@ angular.module('buzzer').component('investmentCard', {
 
     var ctrl = this;
     var currentState = STATE_RESUMED;
+
+    function init() {
+      ctrl.revenue = ctrl.product.currentPrice - ctrl.product.startPrice;
+      ctrl.isPositive = ctrl.revenue >= 0;
+    }
 
     function state(checkState) {
       return currentState === checkState;
@@ -18,12 +23,13 @@ angular.module('buzzer').component('investmentCard', {
       currentState = newState;
     }
 
-    function isPositive() {
-      return ctrl.investment.amountValue > 0;
+    function sign(number) {
+      return number >= 0 ? '+' : '';
     }
 
+    ctrl.$onInit = init;
     ctrl.state = state;
     ctrl.setState = setState;
-    ctrl.isPositive = isPositive;
+    ctrl.sign = sign;
   }]
 });

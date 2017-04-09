@@ -1,12 +1,14 @@
-<div class="card" ng-class="{ 'positive': $ctrl.isPositive(), 'negative': !$ctrl.isPositive() }">
-  <div class="percentage">{{$ctrl.investment.return}}</div>
-  <div class="investment-name">{{$ctrl.investment.investmentName}}</div>
+<div class="card" ng-class="{ 'positive': $ctrl.isPositive, 'negative': !$ctrl.isPositive }">
+  <div class="percentage">{{($ctrl.product.rateOfRoi * 100) | number:2}}%</div>
+  <div class="investment-name">{{$ctrl.product.name}}</div>
   <div class="details">
-    <div class="value">{{$ctrl.investment.amount}}</div>
-    <div class="user-mimicked">
-      <img ng-if="$ctrl.investment.mimicking" src="https://www.gravatar.com/avatar/4c63581802d04203e3f0ab00c72a2410?s=16" alt="Mimicking user">
+    <div class="value">{{$ctrl.sign($ctrl.revenue)}}{{$ctrl.revenue | currency:'$':3}}</div>
+    <div class="user-mimicked" ng-if="$ctrl.product.mimick" title="You are mimicking {{$ctrl.product.mimick.name}} in this product">
+      <a href="/#!/user/{{$ctrl.product.mimick._id}}">
+        <img src="https://www.gravatar.com/avatar/{{$ctrl.product.mimick.emailHash}}?s=16" alt="Mimicking user">
+      </a>
     </div>
-    <div class="controls">
+    <div class="controls" ng-if="false">
       <fa-icon icon="pause" class="pause-investment" ng-if="$ctrl.state('resumed')"  ng-click="$ctrl.setState('paused')"></fa-icon>
       <fa-icon icon="play" class="resume-investment" ng-if="$ctrl.state('paused')"  ng-click="$ctrl.setState('resumed')"></fa-icon>
       <fa-icon icon="close" class="stop-investment"></fa-icon>

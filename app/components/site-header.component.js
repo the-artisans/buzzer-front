@@ -28,6 +28,7 @@ angular.module('buzzer').component('siteHeader', {
     }]
 
     function location(page) {
+      if (!$route.current.$$route) return false;
       return $route.current && $route.current.$$route.name === page;
     }
 

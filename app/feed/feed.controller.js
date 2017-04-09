@@ -1,14 +1,16 @@
 angular.module('buzzer')
   .controller('FeedController', ['$scope', 'FeedService', function FeedController($scope, FeedService) {
-    $scope.investments = [];
+    $scope.overallReport = {};
+    $scope.products = [];
 
     function init() {
-      fetchInvestments();
+      fetchDashboardData();
     }
 
-    function fetchInvestments() {
-      FeedService.allInvestments().then(function(data) {
-        $scope.investments = data;
+    function fetchDashboardData() {
+      FeedService.userDashboard().then(function(data) {
+        $scope.overallReport = data.overallReport;
+        $scope.products = data.products;
       });
     }
 
