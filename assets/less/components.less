@@ -86,6 +86,104 @@ site-header {
   }
 }
 
+info-bar {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border: 1px black solid;
+  border-top: none;
+  cursor: default;
+  font-weight: bold;
+  padding: 0 @navbar-padding-horizontal;
+
+  &>div {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding: 0 10px;
+    &:not(:last-child)::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1px;
+      background: @text-color;
+      right: 0;
+      top: 3px;
+      bottom: 3px;
+    }
+  }
+
+  .date-and-time {
+    flex-basis: 200px;
+  }
+
+  .losses-and-gains {
+    flex-basis: 150px;
+    &>div {
+      display: inline-block;
+      font-size: 1em;
+      text-align: center;
+      flex: 1;
+    }
+    .icon {
+      background: @text-color;
+      border-radius: 50%;
+      line-height: 1;
+      font-weight: 800;
+      font-size: 1.5em;
+      display: inline-block;
+      margin: 5px;
+    }
+    .icon-positive {
+      color: @stock-positive;
+      padding: 0 5px;
+    }
+    .icon-negative {
+      color: @stock-negative;
+      padding: 0 7px;
+    }
+  }
+  .amount {
+    flex: 3;
+    font-weight: bold;
+    text-align: center;
+    &>div {
+      display: inline-block;
+      flex: 1;
+    }
+  }
+  .filter {
+    flex-direction: row-reverse;
+    flex: 1;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    flex-direction: column;
+    padding: @navbar-padding-horizontal 0;
+    .date-and-time,
+    .losses-and-gains {
+      flex-basis: auto;
+    }
+    .date-and-time {
+      flex-direction: column;
+    }
+    &>div {
+      padding-bottom: (@navbar-padding-horizontal / 2);
+      &:not(:first-child) {
+        padding-top: (@navbar-padding-horizontal / 2);
+      }
+      &:not(:last-child)::after {
+        top: initial;
+        width: auto;
+        height: 1px;
+        left: 5px;
+        right: 5px;
+        bottom: 0;
+      }
+    }
+  }
+}
+
 feed-timeline {
   display: block;
 }
