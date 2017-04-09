@@ -9,7 +9,7 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
     }));
   }
 
-  function mockDashboard() {
+  function mockPostDashboard() {
     return createMock({
       result: {
         _id: '58e8d7e6a4f8e33ec891e709',
@@ -24,10 +24,9 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
           name: 'AAPL',
           startTime: '1491494400000',
           startPrice: 144,
-          currentPrice: 287.28,
-          mimick: AuthFactory.getLoggedUser(),
+          mimickUser: AuthFactory.getLoggedUser(),
           unitNumber: 1,
-          rateOfRoi: 0.995,
+          rateOfRoi: 0.0995,
           __v: 0,
           sold: false
         }, {
@@ -35,9 +34,8 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
           name: 'AAON',
           startTime: '1491494400000',
           startPrice: 34.5,
-          currentPrice: 34.293,
           // endPrice: 34.3, // didn't sell, no endPrice
-          mimick: null,
+          mimickUser: null,
           unitNumber: 34.3,
           rateOfRoi: -0.006,
           __v: 0,
@@ -47,18 +45,11 @@ angular.module('buzzer').service('FeedService', ['API_BASE_URL', '$http', 'AuthF
     });
   }
 
-  this.allInvestments = function allInvestments() {
-    return mockDashboard();
-    // return $http.get(baseUrl).then(function onSuccess(response) {
-    //   return response.data;
-    // });
-  }
-
   this.userDashboard = function allInvestments() {
     var loggedUserId = AuthFactory.getLoggedUser()._id;
     return (
-      mockDashboard()
-        // $http.post(baseUrl, { userId: loggedUserId })
+      // mockPostDashboard()
+      $http.post(baseUrl, { userId: loggedUserId })
         .then(function onSuccess(response) {
           return response.data.result;
         })

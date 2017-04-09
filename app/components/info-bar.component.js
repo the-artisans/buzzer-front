@@ -1,7 +1,7 @@
 angular.module('buzzer').component('infoBar', {
   templateUrl: 'app/components/info-bar.component.html',
   bindings: {
-    overallRate: '<',
+    overallPerformance: '<',
     activeFilter: '<',
     onFilterChange: '&'
   },

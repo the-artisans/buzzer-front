@@ -1,10 +1,10 @@
 angular.module('buzzer', ['ngRoute', 'ui.bootstrap'])
-  .constant('API_BASE_URL', 'http://api.url/')
+  .constant('API_BASE_URL', 'https://hidden-fjord-70987.herokuapp.com/')
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/dashboard', {
         name: 'dashboard',
-        templateUrl: 'app/feed/feed.html',
+        templateUrl: 'app/page-feed/feed.html',
         controller: 'FeedController'
       })
       .when('/manage', {

@@ -22,8 +22,8 @@
   </div>
   <div class="average-performance">
     <span class="average-performance-label">Average performance: </span>
-    <span class="average-performance-value" ng-class="{ 'stock-positive': $ctrl.averagePerformance > 0, 'stock-negative': $ctrl.averagePerformance < 0 }">
-      {{$ctrl.sign($ctrl.averagePerformance)}}{{$ctrl.averagePerformance | number:3}}%
+    <span class="average-performance-value" ng-class="{ 'stock-positive': $ctrl.overallPerformance.averageRateOfRoi > 0, 'stock-negative': $ctrl.overallPerformance.averageRateOfRoi < 0 }">
+      {{$ctrl.sign($ctrl.overallPerformance.averageRateOfRoi)}}{{($ctrl.overallPerformance.averageRateOfRoi * 100) | number:3}}%
     </span>
   </div>
 </div>

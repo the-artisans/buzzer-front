@@ -11,7 +11,8 @@ angular.module('buzzer').component('investmentCard', {
     var currentState = STATE_RESUMED;
 
     function init() {
-      ctrl.revenue = ctrl.product.currentPrice - ctrl.product.startPrice;
+      // ctrl.revenue = ctrl.product.currentPrice - ctrl.product.startPrice;
+      ctrl.revenue = ctrl.product.startPrice * ctrl.product.unitNumber * ctrl.product.rateOfRoi;
       ctrl.isPositive = ctrl.revenue >= 0;
     }
 
