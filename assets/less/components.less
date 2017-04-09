@@ -49,10 +49,17 @@ site-header {
     border-bottom: 1px solid @text-color-light;
     .container-fluid {
       line-height: 0;
+      display: flex;
+      .filler-left,
+      .menu-container {
+        flex: 1;
+      }
       .navbar-nav {
         float: none;
         display: inline-block;
         margin: 0;
+        white-space: nowrap;
+        overflow: auto;
         li {
           display: inline-block;
           &:not(:last-child) .btn-link {
@@ -80,6 +87,20 @@ site-header {
           &:focus {
             text-decoration: none;
           }
+        }
+        @media (max-width: @screen-xs-max) {
+          height: 3em;
+          li,
+          .btn-link {
+            height: 100%;
+          }
+        }
+      }
+      .menu-container {
+        text-align: right;
+        .open-menu {
+          font-size: 1.5em;
+          cursor: pointer;
         }
       }
     }
@@ -115,6 +136,9 @@ info-bar {
 
   .date-and-time {
     flex-basis: 200px;
+    @media (min-width: @screen-xs-max) {
+      padding-left: 0;
+    }
   }
 
   .losses-and-gains {
@@ -155,6 +179,9 @@ info-bar {
   .filter {
     flex-direction: row-reverse;
     flex: 1;
+    @media (min-width: @screen-xs-max) {
+      padding-right: 0;
+    }
   }
 
   @media (max-width: @screen-xs-max) {
@@ -266,6 +293,63 @@ investment-card {
           transform: translate(-50%, -50%);
           top: 50%;
         }
+      }
+    }
+  }
+}
+
+side-bar {
+  display: block;
+  .side-bar-component {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    max-width: 100%;
+    min-height: 400px;
+    background-color: @body-bg;
+    z-index: 1;
+    border: 1px solid @text-color-light;
+    border-top: white 2px solid;
+    transition: transform .5s ease-in-out;
+    transform: translateX(100%);
+    &.opened {
+      transform: translateX(0);
+    }
+  }
+  .toolbar {
+    background-color: @brand-primary;
+    padding: 0 5px;
+    text-align: right;
+    fa-icon {
+      color: @text-color-inverse;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+  }
+  .tabs {
+    display: flex;
+    background-color: @menu-bg;
+    border-bottom: 1px solid @text-color-light;
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid @text-color-light;
+      &.active {
+        background-color: @body-bg;
+        border-bottom: none;
+        &.tab-feed {
+          border-right: 1px solid @text-color-light;
+        }
+        &.tab-market {
+          border-left: 1px solid @text-color-light;
+        }
+      }
+      &:hover,
+      &:focus {
+        text-decoration: none;
       }
     }
   }

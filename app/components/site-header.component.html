@@ -15,8 +15,12 @@
     </div>
     </div>
   </nav>
+
+  <side-bar open="menuOpened"></side-bar>
+
   <nav class="navbar navbar-menu">
     <div class="container-fluid">
+      <div class="filler-left"></div>
       <ul class="nav navbar-nav">
         <li ng-repeat="page in $ctrl.pages">
           <button type="button" class="btn btn-link" ng-click="$ctrl.navigate(page.route)" ng-class="{ 'active': $ctrl.location(page.route) }">
@@ -24,7 +28,11 @@
           </button>
         </li>
       </ul>
+      <div class="menu-container">
+        <fa-icon icon="ellipsis-h" class="open-menu" ng-click="menuOpened = true"></fa-icon>
+      </div>
     </div>
   </nav>
+
   <info-bar></info-bar>
 </header>

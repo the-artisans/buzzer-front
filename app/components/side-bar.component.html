@@ -1,0 +1,22 @@
+<div class="side-bar-component" ng-class="{ 'opened': $ctrl.open }">
+  <div class="toolbar">
+    <fa-icon icon="close" ng-click="$ctrl.closeMenu()"></fa-icon>
+  </div>
+  <div class="tabs">
+    <button class="tab tab-feed btn btn-link" ng-click="$ctrl.setTab('feed')" ng-class="{ 'active': $ctrl.tab('feed') }">
+    Feed
+  </button>
+    <button class="tab tab-market btn btn-link" ng-click="$ctrl.setTab('market')" ng-class="{ 'active': $ctrl.tab('market') }">
+    Market
+  </button>
+  </div>
+  <div class="body">
+    <div class="body-content feed-body" ng-if="$ctrl.tab('feed')">
+      Feed
+    </div>
+    <div class="body-content feed-body" ng-if="$ctrl.tab('market')">
+      Market
+      <feed-timeline></feed-timeline>
+    </div>
+  </div>
+</div>
